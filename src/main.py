@@ -1,8 +1,8 @@
 from textnode import TextNode, TextType
 from htmlnode import HTMLNode, LeafNode, ParentNode
 
-# new_node = TextNode('This is some anchor text', TextType.LINK, 'https://www.boot.dev')
-# print(new_node)
+new_node = TextNode('This is some anchor text', TextType.LINK, 'https://www.boot.dev')
+print(new_node)
 
 # node1 = HTMLNode(
 #     tag="a",
@@ -30,9 +30,10 @@ from htmlnode import HTMLNode, LeafNode, ParentNode
 # print(node3)
 
 
-child_node = LeafNode("span", "child")
-parent_node = ParentNode("div", [child_node])
+# child_node = LeafNode("span", "child")
+# parent_node = ParentNode("div", [child_node])
 
-print(child_node)
-print(parent_node)
-print(parent_node.to_html())
+# print(child_node)
+# print(parent_node)
+# print(parent_node.to_html())
+
