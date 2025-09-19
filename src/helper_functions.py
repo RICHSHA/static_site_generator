@@ -113,11 +113,21 @@ def split_nodes_link(old_nodes):
 
     return new_nodes
 
+def text_to_textnodes(text):
+    nodes = [TextNode(text, TextType.TEXT)]
+    nodes = split_nodes_image(nodes)
+    nodes = split_nodes_link(nodes)
+    nodes = split_nodes_delimiter(nodes, '`', TextType.CODE)
+    nodes = split_nodes_delimiter(nodes, '_', TextType.ITALIC)
+    nodes = split_nodes_delimiter(nodes, '**', TextType.BOLD)
+
+    return nodes
+
 if __name__ == '__main__':
-    # node = TextNode("This is text with a **bolded** word", TextType.TEXT)
-    # new_nodes = split_nodes_delimiter([node], "**", TextType.BOLD)
-    # print(new_nodes)
-    # split_nodes_delimiter([node], "`", TextType.CODE)
+    node = TextNode("This is text with a **bolded** word", TextType.TEXT)
+    new_nodes = split_nodes_delimiter([node], "**", TextType.BOLD)
+    print(new_nodes)
+    split_nodes_delimiter([node], "`", TextType.CODE)
 
     # node = TextNode(
     #     "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png) and another ![second image](https://i.imgur.com/3elNhQu.png)",
@@ -132,4 +142,4 @@ if __name__ == '__main__':
     # new_nodes = split_nodes_links([node])
     # print(new_nodes)
 
-    print(extract_markdown_links("This is text with an [google](https://google.com)"))
+    # print(extract_markdown_links("This is text with an [google](https://google.com)"))
